@@ -10,13 +10,31 @@ namespace Classes_Roman
 {
     class Program
     {
+        static List<Player> players = new List<Player>();
+
         static void Main()
         {
-            Player player1 = new Player(name: "Simon", hp: 1000000, lvl: 9999);
+            Player player1 = new Player(name: "Simon_Da_Goat", hp: 1000000, lvl: 9999);
             Player player2 = new Player(name: "Michael Tweedale", hp: 1, lvl: 0);
 
-            player2.TakeDamage(100);
+            player1.TakeDamage(100);
 
+            player1.PrintStats();
+            Console.WriteLine("-----");
+            player2.PrintStats();
+
+            Console.ReadKey(true);
+
+            for (int i = 0; i < 100; i++)
+            {
+                players.Add(new Player(name: "Player_" + i, hp: 100, lvl: 1));
+            }
+
+            for(int i = 0; i < players.Count; i++)
+            {
+                players[i].PrintStats();
+                Console.WriteLine("-----");
+            }
         }
     }
 
@@ -54,9 +72,9 @@ namespace Classes_Roman
 
         public void PrintStats()
         {
-            Console.WriteLine(_name);
-            Console.WriteLine(_health);
-            Console.WriteLine(_level);
+            Console.WriteLine($"Name: {_name}");
+            Console.WriteLine($"HP: {_health}");
+            Console.WriteLine($"LVL: {_level}");
         }
     }
 }
