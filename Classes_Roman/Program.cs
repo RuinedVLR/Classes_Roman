@@ -35,6 +35,8 @@ namespace Classes_Roman
                 players[i].PrintStats();
                 Console.WriteLine("-----");
             }
+
+            Console.ReadKey(true);
         }
     }
 
